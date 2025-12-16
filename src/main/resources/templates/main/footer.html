@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- Footer -->
+	<div id="footer-wrapper">
+		<footer id="footer" class="container">
+			<div class="row">
+				<div class="col-3 col-6-medium col-12-small">
+					<!-- Links -->
+					<section class="widget links">
+						<h3>맛집 인기 Top 10</h3>
+						<ul class="style2">
+							<li th:each="vo: ${fList}"><a href="#">[[${vo.name}]]</a></li>
+						</ul>
+					</section>
+				</div>
+				<div class="col-3 col-6-medium col-12-small">
+					<!-- Links -->
+					<section class="widget links">
+						<h3>레시피 인기 Top 10</h3>
+						<ul class="style2">
+							<li><a href="#">Etiam feugiat condimentum</a></li>
+							<li><a href="#">Aliquam imperdiet suscipit odio</a></li>
+							<li><a href="#">Sed porttitor cras in erat nec</a></li>
+							<li><a href="#">Felis varius pellentesque potenti</a></li>
+							<li><a href="#">Nullam scelerisque blandit leo</a></li>
+						</ul>
+					</section>
+				</div>
+				<div class="col-6 col-6-medium col-12-small">
+					<!-- Links -->
+					<section class="widget links">
+						<h3>실시간 뉴스</h3>
+						<ul class="style2">
+							<li><a href="#">Etiam feugiat condimentum</a></li>
+							<li><a href="#">Aliquam imperdiet suscipit odio</a></li>
+							<li><a href="#">Sed porttitor cras in erat nec</a></li>
+							<li><a href="#">Felis varius pellentesque potenti</a></li>
+							<li><a href="#">Nullam scelerisque blandit leo</a></li>
+						</ul>
+					</section>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<div id="copyright">
+						<ul class="menu">
+							<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+</body>
+</html>
