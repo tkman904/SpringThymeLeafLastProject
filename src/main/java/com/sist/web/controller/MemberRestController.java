@@ -28,7 +28,6 @@ public class MemberRestController {
 	@GetMapping("/member/login_vue/")
 	public MemberVO member_login_vue(@RequestParam("id") String id, @RequestParam("pwd") String pwd, HttpSession session) {
 		// session, request, response
-		System.out.println(pwd);
 		MemberVO vo = mService.memberLogin(id, pwd);
 		if(vo.getMsg().equals("OK")) {
 			session.setAttribute("id", vo.getId());
