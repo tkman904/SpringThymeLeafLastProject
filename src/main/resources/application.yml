@@ -13,8 +13,6 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.OracleDialect
-        storage_engine: innodb
-        show_sql: true
         format_sql: true
         user_sql_comments: true
   thymeleaf:
@@ -26,3 +24,8 @@ spring:
 mybatis:
   type-aliases-package: com.sist.web.vo
   mapper-locations: mybtis/mapper/*.xml
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE

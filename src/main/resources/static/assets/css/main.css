@@ -121,7 +121,7 @@ input, select, textarea {
 		line-height: 2.25em;
 	}
 
-	a {
+	#footer a {
 		color: #0090c5;
 		text-decoration: underline !important;
 	}
