@@ -1786,6 +1786,8 @@ input, select, textarea {
 	}
 
 		.box.feature {
+			max-height:500px;
+	        min-height:500px;
 			padding: 0;
 		}
 

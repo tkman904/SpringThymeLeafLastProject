@@ -35,12 +35,28 @@
 							<li><a href="/recipe/chef">쉐프</a></li>
 						</ul>
 					</li>
-					<li><a href="/seoul/list">서울여행</a></li>
-					<li><a href="/movie/search">동영상 검색</a></li>
+					<li>
+						<a href="#">서울 여행</a>
+						<ul>
+							<li><a href="/seoul/location">명소</a></li>
+							<li><a href="/seoul/nature">자연&관광</a></li>
+							<li><a href="/seoul/shop">쇼핑</a></li>
+							<li><a href="/seoul/youtube">동영상</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">부산 여행</a>
+						<ul>
+							<li><a href="#">명소</a></li>
+							<li><a href="#">자연&관광</a></li>
+							<li><a href="#">축제</a></li>
+							<li><a href="#">동영상</a></li>
+						</ul>
+					</li>
 					<li><a href="/board/list">커뮤니티</a></li>
 				</ul>
 			</nav>
-			<div class="row aln-right" th:if="${session.id == null}">
+			<div class="row aln-right" th:if="${session.id == null}" @keyup.enter="login()">
 				ID: <input type="text" ref="id" class="input-sm" size="15" v-model="id">&nbsp;
 				PW: <input type="password" ref="pwd" class="input-sm" size="15" v-model="pwd">&nbsp;
 				<button class="btn-xs btn-primary" type="button" @click="login()">로그인</button>

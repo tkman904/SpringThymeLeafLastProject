@@ -59,11 +59,14 @@ import lombok.RequiredArgsConstructor;
 public class FooterAOP {
 	// FoodController => fService 동일하다 (싱글턴으로 저장)
 	private final FoodService fService;
+	private final RecipeService rService;
 	
 	@After("execution(* com.sist.web.controller.*Controller.*(..))")
 	public void after() {
 		HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest();
 		List<FoodVO> fList = fService.foodTop10Data();
+		List<RecipeVO> rList = rService.recipeTop10();
 		request.setAttribute("fList", fList);
+		request.setAttribute("rList", rList);
 	}
 }
