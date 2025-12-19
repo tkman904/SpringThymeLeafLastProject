@@ -27,6 +27,7 @@ import com.sist.web.vo.RecipeDetailVO;
 import com.sist.web.vo.RecipeVO;
 import com.sist.web.vo.SeoulVO;
 
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 
 import java.util.*;
@@ -49,6 +50,10 @@ import java.util.*;
  *   
  *  XML => 변경 (어노테이션)
  *   | 자바스크립트 : JSON
+ *   
+ *  1. 전송 / 처리 / 결과값 출력
+ *     -------------------
+ *      | 요청값     | 결과값
  */
 @Controller
 @RequiredArgsConstructor
@@ -91,13 +96,27 @@ public class RecipeController {
 	}
 	
 	@GetMapping("detail")
-	public String recipe_detail(@RequestParam("no") int no, Model model) {
+	public String recipe_detail(@RequestParam("no") int no, Model model, HttpSession session) {
 		// DB 연동
 		RecipeDetailVO vo = rService.recipeDetailData(no);
-		
+		List<String> mList = new ArrayList<String>();
+		List<String> nList = new ArrayList<String>();
+		String[] datas = vo.getFoodmake().split("\n");
+		for(String s : datas) {
+			StringTokenizer st = new StringTokenizer(s, "^");
+			mList.add(st.nextToken());
+			nList.add(st.nextToken());
+		}
+		model.addAttribute("mList", mList);
+		model.addAttribute("nList", nList);
 		model.addAttribute("vo", vo);
 		
-		// 댓글
+		String id = (String)session.getAttribute("id");
+		if(id == null) {
+			model.addAttribute("sessionId", "");
+		} else {
+			model.addAttribute("sessionId", id);
+		}
 		
 		model.addAttribute("main_html", "recipe/detail");
 		
